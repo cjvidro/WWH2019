@@ -24,6 +24,24 @@ public class Rooms {
 		{
 			return;
 		}
+		
+		/*
+		 * Gives the width of the door.
+		 * (Presumably number of pixels)
+		 */
+		public int width()
+		{
+			return 0;
+		}
+		
+		/*
+		 * Gives the height of the door.
+		 * (Presumably number of pixels)
+		 */
+		public int height()
+		{
+			return 0;
+		}
 	}
 	
 	/*
