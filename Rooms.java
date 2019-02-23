@@ -1,5 +1,7 @@
+import javafx.scene.shape.Rectangle;
 
 public class Rooms {
+	
 	
 	/*
 	 * Inner class that stores all of the info on the door.
@@ -22,34 +24,24 @@ public class Rooms {
 		 */
 		public void texture()
 		{
-			return;
-		}
-		
-		/*
-		 * Gives the width of the door.
-		 * (Presumably number of pixels)
-		 */
-		public int width()
-		{
-			return 0;
-		}
-		
-		/*
-		 * Gives the height of the door.
-		 * (Presumably number of pixels)
-		 */
-		public int height()
-		{
-			return 0;
+			return; 
 		}
 	}
+	
+	// Will be used to make the room
+	Rectangle walls;
 	
 	/*
 	 * Gives the location of the room object.
 	 */
-	public void location()
+	public int[] location()
 	{
-		return;
+		// Point is an array that will store the x and y values of the grid. 
+		int[] point = new int[2];
+		// The width and height of each grid pane is 25 and the rooms are automatically going to fit within them.
+		point[0] = (int)walls.getX()/25;
+		point[1] = (int)walls.getY()/25;
+		return point;
 	}
 	
 	/*
@@ -62,19 +54,19 @@ public class Rooms {
 	
 	/*
 	 * Gives the width of the room.
-	 * (Presumably number of pixels)
+	 * The width is measured in pixels.
 	 */
 	public int width()
 	{
-		return 0;
+		return (int) walls.getWidth();
 	}
 	
 	/*
 	 * Gives the height of the room.
-	 * (Presumably number of pixels)
+	 * The height is measured in pixels.
 	 */
 	public int height()
 	{
-		return 0;
+		return (int) walls.getHeight();
 	}
 }
