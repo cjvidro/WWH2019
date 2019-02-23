@@ -21,6 +21,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Gui extends Application {
@@ -62,6 +63,9 @@ public class Gui extends Application {
 	private double yLastTranslate = 0;
 	private double xMouseClick = 0;
 	private double yMouseClick = 0;
+	
+	private int height = 0;
+	private int width = 0;
 
 	// Design variables
 	final Font titleFont = Font.font("Bookman", FontWeight.BOLD, FontPosture.REGULAR, 25);
@@ -319,7 +323,7 @@ public class Gui extends Application {
 		viewer.setOnKeyPressed(null);
 		
 		if (addObject.getValue().equals("Room")) {
-			System.out.println("Selected room");
+			selectedRoom();
 		}
 		else if (addObject.getValue().equals("Walkway")) {
 			if(!addOpen) {
@@ -452,5 +456,62 @@ public class Gui extends Application {
 				setupViewerDrag();
 			}
 		});
+	}
+	
+	private void selectedRoom() {
+		System.out.println("Selected room");
+		if (!addOpen) {
+			GridPane pane = new GridPane();
+			Scene roomWindow = new Scene(pane, 300, 200);
+			Stage roomStage = new Stage();
+			
+			Label widthLabel = new Label("Width");
+			widthLabel.setFont(labelFont);
+			TextField widthField = new TextField();
+			widthField.setEditable(true);
+			widthField.setPromptText("Enter a width:");
+			widthField.setFont(labelFont);
+			
+			Label heightLabel = new Label("Height");
+			heightLabel.setFont(labelFont);
+			TextField heightField = new TextField();
+			heightField.setEditable(true);
+			heightField.setPromptText("Enter a height:");
+			heightField.setFont(labelFont);
+			
+			Button createButton = new Button("Create");
+			
+			pane.add(widthLabel, 0, 0);
+			pane.add(widthField, 1, 0);
+			pane.add(heightLabel, 0, 1);
+			pane.add(heightField, 1, 1);
+			pane.add(createButton, 1, 3);
+			
+			
+			createButton.setOnAction(event -> {
+				try {
+					height = Integer.parseInt(heightField.getText());
+					width = Integer.parseInt(widthField.getText());
+					
+					if (height >= 3 && width >= 3) {
+						roomStage.close();
+						createNextRoom(height, width);
+					}
+				} catch (RuntimeException e) {
+					// do nothing, wait
+				}
+			});
+			
+			
+			roomStage.setAlwaysOnTop(true);
+			roomStage.setTitle("Create New Room");
+			roomStage.setScene(roomWindow);
+			roomStage.initModality(Modality.APPLICATION_MODAL);
+			roomStage.show();
+		}
+	}
+	
+	private void createNextRoom(int height, int width) {
+		System.out.println("valid room paramaters: " + height + " " + width);
 	}
 }
