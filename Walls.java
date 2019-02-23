@@ -6,9 +6,11 @@ public class Walls extends Rectangle {
 	
 	private Rectangle customWall;
 	private buildingBlocks info;
+	private boolean traversable;
 	
 	public Walls(int x, int y)
 	{
+		traversable = false;
 		customWall = new Rectangle(x, y, 25, 25);
 		customWall.setStroke(Color.RED);
 		customWall.setFill(Color.TRANSPARENT);
@@ -18,6 +20,7 @@ public class Walls extends Rectangle {
 	
 	public Walls(int x, int y, int width, int height)
 	{
+		traversable = false;
 		customWall = new Rectangle(x, y, width, height);
 		customWall.setStroke(Color.RED);
 		customWall.setFill(Color.TRANSPARENT);
@@ -53,6 +56,16 @@ public class Walls extends Rectangle {
 	public Rectangle getShape()
 	{
 		return customWall;
+	}
+	
+	public boolean getTravel()
+	{
+		return traversable;
+	}
+	
+	public void setTraversable(boolean maybe)
+	{
+		traversable = maybe;
 	}
 
 }

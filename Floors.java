@@ -6,9 +6,11 @@ public class Floors extends Rectangle {
 	
 	private Rectangle theFloor;
 	private buildingBlocks info;
+	private boolean traversable;
 	
 	public Floors(int x, int y)
 	{
+		traversable = true;
 		theFloor = new Rectangle(x, y, 25, 25);
 		theFloor.setFill(Color.GREEN);
 		
@@ -18,6 +20,7 @@ public class Floors extends Rectangle {
 	
 	public Floors(int x, int y, int width, int height)
 	{
+		traversable = true;
 		theFloor = new Rectangle(x, y, width, height);
 		theFloor.setFill(Color.GREEN);
 		
@@ -41,5 +44,10 @@ public class Floors extends Rectangle {
 	public Rectangle getShape()
 	{
 		return theFloor;
+	}
+	
+	public boolean getTravel()
+	{
+		return traversable;
 	}
 }
