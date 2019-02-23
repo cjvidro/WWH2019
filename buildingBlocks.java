@@ -38,6 +38,17 @@ public class buildingBlocks
 		rmNum = " ";
 	}
 	
+	// For any type that isn't a room and doesn't have a name.
+		public buildingBlocks(String t, int xa, int ya, int level)
+		{
+			name = " ";
+			type = t;
+			x = xa;
+			y = ya;
+			floor = level;
+			rmNum = " ";
+		}
+	
 	public String getName()
 	{
 		return name;
@@ -56,12 +67,9 @@ public class buildingBlocks
 	
 	public String getRoomNumber()
 	{
-		if(type.equals(" "))
-		{
-			return null;
-		}
 		return rmNum;
 	}
+	
 	
 	public int getX()
 	{
@@ -72,4 +80,5 @@ public class buildingBlocks
 	{
 		return y;
 	}
+	// Hello
 }
