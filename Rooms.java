@@ -1,14 +1,25 @@
+import javafx.scene.shape.Rectangle;
 
-public class Rooms {
+public class Rooms{
 	
 	// This is used to show where the grid walls are.
 	Walls outerWalls;
+	Floors innerArea;
 	String roomNumber;
 	buildingBlocks info;
 	
 	public Rooms(int x, int y, String num)
 	{
 		outerWalls = new Walls(x, y);
+		innerArea = new Floors(x, y);
+		roomNumber = num;
+		info = new buildingBlocks(" ", roomNumber, "Room", x, y, 1);
+	}
+	
+	public Rooms(int x, int y, int width, int height, String num)
+	{
+		outerWalls = new Walls(x, y, width, height);
+		innerArea = new Floors(x, y, width, height);
 		roomNumber = num;
 		info = new buildingBlocks(" ", roomNumber, "Room", x, y, 1);
 	}
@@ -20,8 +31,8 @@ public class Rooms {
 		// Point is an array that will store the x and y values of the grid. 
 		int[] point = new int[2];
 		// The width and height of each grid pane is 25 and the rooms are automatically going to fit within them.
-		point[0] = outerWalls.getX()/25;
-		point[1] = outerWalls.getY()/25;
+		point[0] = outerWalls.getXAxe()/25;
+		point[1] = outerWalls.getYAxe()/25;
 		return point;
 	}
 	
@@ -39,7 +50,7 @@ public class Rooms {
 	 */
 	public int width()
 	{
-		return outerWalls.getWidth();
+		return outerWalls.getWid();
 	}
 	
 	/*
@@ -48,7 +59,7 @@ public class Rooms {
 	 */
 	public int height()
 	{
-		return outerWalls.getHeight();
+		return outerWalls.getHei();
 	}
 	
 	public buildingBlocks write()
@@ -60,4 +71,15 @@ public class Rooms {
 	{
 		info.setName(name);
 	}
+	
+	public Rectangle getFloor()
+	{
+		return innerArea.getShape();
+	}
+	
+	public Rectangle getWall()
+	{
+		return outerWalls.getShape();
+	}
+	
 }

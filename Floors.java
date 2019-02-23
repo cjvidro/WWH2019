@@ -1,20 +1,28 @@
+
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Floors {
+public class Floors extends Rectangle {
 	
-	Rectangle theFloor;
-	buildingBlocks info;
+	private Rectangle theFloor;
+	private buildingBlocks info;
 	
 	public Floors(int x, int y)
 	{
-		theFloor.setX(x);
-		theFloor.setY(y);
-		theFloor.setFill(Color.ALICEBLUE);
+		theFloor = new Rectangle(x, y, 25, 25);
+		theFloor.setFill(Color.GREEN);
 		
 		info = new buildingBlocks("Floor", x, y, 1);
 	}
 	
+	
+	public Floors(int x, int y, int width, int height)
+	{
+		theFloor = new Rectangle(x, y, width, height);
+		theFloor.setFill(Color.GREEN);
+		
+		info = new buildingBlocks("Floor", x, y, 1);
+	}
 	public int floorX()
 	{
 		return (int)theFloor.getX();
@@ -28,5 +36,10 @@ public class Floors {
 	public buildingBlocks write()
 	{
 		return info;
+	}
+	
+	public Rectangle getShape()
+	{
+		return theFloor;
 	}
 }

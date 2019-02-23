@@ -14,7 +14,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class Gui extends  Application {
+public class Gui extends Application {
 	//containers
 	private BorderPane mainWindow;
 	private VBox controls;
