@@ -199,7 +199,7 @@ public class Gui extends Application {
 		roomField = new TextField();
 		roomField.setEditable(true);
 		roomField.setPromptText("Enter the room number");
-
+ 
 		
 		typeField = new TextField();
 		typeField.setEditable(false);
