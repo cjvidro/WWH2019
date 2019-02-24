@@ -58,10 +58,20 @@ public class Walls extends Rectangle {
 		return (int)customWall.getWidth();
 	}
 	
+	public void setWid(int width)
+	{
+		customWall.setWidth(width);
+	}
+	
 	//Returns the height of the block.
 	public int getHei()
 	{
 		return (int)customWall.getHeight();
+	}
+	
+	public void setHei(int height)
+	{
+		customWall.setHeight(height);
 	}
 	
 	// Will be used to so we can easily write the data into a text file.

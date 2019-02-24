@@ -60,7 +60,7 @@ public class Rooms{
 		this.x = x;
 		this.y = y;
 		pane = new Group();
-		info = new buildingBlocks("Room", 0, 0);
+		info = new buildingBlocks("Room", x, y);
 		for(int r = 0; r < width/25; r++)
 		{
 			for(int c = 0; c < height/25; c++)
@@ -173,8 +173,8 @@ public class Rooms{
           
 
             // set position
-            setTranslateX( x);
-            setTranslateY( y);
+            setTranslateX(x);
+            setTranslateY(y);
 
             getChildren().addAll( floor.getShape());
 
@@ -189,8 +189,8 @@ public class Rooms{
           
 
             // set position
-            setTranslateX( x);
-            setTranslateY( y);
+            setTranslateX(x);
+            setTranslateY(y);
 
             getChildren().addAll( wall.getShape());
 
