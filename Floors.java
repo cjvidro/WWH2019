@@ -15,8 +15,8 @@ public class Floors extends Rectangle {
 	public Floors(int x, int y)
 	{
 		traversable = true;
-		theFloor = RectangleBuilder.create().x(x).y(y).width(4/5*25).height(4/5*25).fill(new ImagePattern(new Image("file:25 by 25 Floor Wood.png"), 0, 0, 1, 1, true)).build();
-		info = new buildingBlocks("Floor", x, y, 1);
+		theFloor = RectangleBuilder.create().x(x).y(y).width(25).height(25).fill(new ImagePattern(new Image("file:25 by 25 Floor Wood.png"), 0, 0, 1, 1, true)).build();
+		info = new buildingBlocks("Floor", x, y);
 	}
 	
 	// Constructor that takes width and height on top of x and y coordinates to allow for multiple blocks to be created at once.
@@ -24,13 +24,13 @@ public class Floors extends Rectangle {
 	{
 		traversable = true;
 		theFloor = RectangleBuilder.create().x(x).y(y).width(width).height(height).fill(new ImagePattern(new Image("file:25 by 25 Floor Wood.png"), 0, 0, 1, 1, true)).build();
-		info = new buildingBlocks("Floor", x, y, 1);
+		info = new buildingBlocks("Floor", x, y);
 	}
 	
 	public Floors(double width, double height) {
 		traversable = true;
 		theFloor = RectangleBuilder.create().width(width).height(height).fill(new ImagePattern(new Image("file:25 by 25 Floor Wood.png"), 0, 0, 1, 1, true)).build();
-		info = new buildingBlocks("Floor", 0, 0, 1);
+		info = new buildingBlocks("Floor", 0, 0);
 	}
 
 	// Gets the x coordinate of the rectangle.

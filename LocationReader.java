@@ -38,21 +38,22 @@ public class LocationReader {
             	{
             		if(command.equalsIgnoreCase("room"))
             		{
-            			String roomNum = scan.next();
-            			String name = scan.next();
             			int x = scan.nextInt();
             			int y = scan.nextInt();
-            			//Rooms room = new Rooms(x, y, roomNum, name);
-            			//info.add(room.write());
-            			//pane.getChildren().addAll(room.getFloor(), room.getWall());
+            			int width = scan.nextInt();
+            			int height = scan.nextInt();
+            			String name = scan.next();
+            			Rooms room = new Rooms(x, y, width, height, name);
+            			info.add(room.write());
+            			pane.getChildren().addAll(room.getFloor(), room.getWall());
             		}
-            		else if(command.equalsIgnoreCase("floor"))
+            		else if(command.equalsIgnoreCase("door"))
             		{
             			int x = scan.nextInt();
             			int y = scan.nextInt();
-            			Floors floor = new Floors(x, y);
-            			info.add(floor.write());
-            			pane.getChildren().add(floor.getShape());
+            			Doors door = new Doors(x, y);
+            			info.add(door.write());
+            			pane.getChildren().add(door.getShape());
             		}
             		else if (command.equalsIgnoreCase("wall"))
             		{
@@ -61,6 +62,14 @@ public class LocationReader {
             			Walls wall = new Walls(x, y);
             			info.add(wall.write());
             			pane.getChildren().add(wall.getShape());
+            		}
+            		else if (command.equalsIgnoreCase("floor"))
+            		{
+            			int x = scan.nextInt();
+            			int y = scan.nextInt();
+            			Floors floor = new Floors(x, y);
+            			info.add(floor.write());
+            			pane.getChildren().add(floor.getShape());
             		}
             	}
             }
@@ -90,7 +99,6 @@ public class LocationReader {
         		output.write(shape.getName());
         		output.write(shape.getX());
         		output.write(shape.getY());
-        		output.write(shape.getFloor());
         	}
 
         	output.close();

@@ -18,7 +18,9 @@ public class testArea extends Application{
 		Pane pane = new Pane();
 		Rooms room = new Rooms(75, 75);
 		Doors door = new Doors(100, 0);
-		pane.getChildren().addAll(room.pane);
+		Walls wall = new Walls(100, 100);
+		Floors floor = new Floors((int)200, 200);
+		pane.getChildren().addAll(room.pane, wall.getShape(), floor.getShape());
 		
 		Scene scene = new Scene(pane, 800, 800);
 		primaryStage.setScene(scene);

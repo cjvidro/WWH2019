@@ -14,8 +14,8 @@ public class Walls extends Rectangle {
 	public Walls(int x, int y)
 	{
 		traversable = false;
-		customWall = RectangleBuilder.create().x(x).y(y).width(25).height(25).fill(new ImagePattern(new Image("file:25 by 25 Grey Wall.png"), 0, 0, 1, 1, true)).build();;
-		info = new buildingBlocks("Wall", x, y, 1);
+		customWall = RectangleBuilder.create().x(x).y(y).width(25).height(25).fill(new ImagePattern(new Image("file:25 by 25 Grey Wall.png"), 0, 0, 1, 1, true)).build();
+		info = new buildingBlocks("Wall", x, y);
 	}
 	
 	// This is in case we have enough time to allow them to select multiple blocks at one time.
@@ -23,21 +23,21 @@ public class Walls extends Rectangle {
 	{
 		traversable = false;
 		customWall = RectangleBuilder.create().x(x).y(y).width(width).height(width).fill(new ImagePattern(new Image("file:25 by 25 Grey Wall.png"), 0, 0, 1, 1, true)).build();
-		info = new buildingBlocks("Wall", x, y, 1);
+		info = new buildingBlocks("Wall", x, y);
 	}
 	
 	public Walls(int x, int y, String wall)
 	{
 		traversable = true;
 		customWall = RectangleBuilder.create().x(x).y(y).width(25).height(25).fill(new ImagePattern(new Image("file:25 by 25 Door.png"), 0, 0, 1, 1, true)).build();
-		info = new buildingBlocks("Wall", x, y, 1);
+		info = new buildingBlocks("Door", x, y);
 	}
 	
 	public Walls(double width, double height)
 	{
 		traversable = false;
 		customWall = RectangleBuilder.create().width(width).height(height).fill(new ImagePattern(new Image("file:25 by 25 Grey Wall.png"), 0, 0, 1, 1, true)).build();
-		info = new buildingBlocks("Wall", 0, 0, 1);
+		info = new buildingBlocks("Wall", 0, 0);
 	}
 	
 	// Returns x coordinate of of the upper left hand corner of the block.

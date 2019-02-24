@@ -8,7 +8,7 @@ public class Doors {
 	public Doors(int x, int y) {
 		door = new Walls(x, y, "door");
 		door.setTraversable(true);
-		info = new buildingBlocks("Door", x, y, 1);
+		info = new buildingBlocks("Door", x, y);
 	}
 	
 	public int getX()
@@ -46,5 +46,9 @@ public class Doors {
 		return door.getShape();
 	}
 	
+	public buildingBlocks write()
+	{
+		return info;
+	}
 
 }
