@@ -17,7 +17,7 @@ public class Rooms{
 	int height;
 	int x;
 	int y;
-	
+
 	public Rooms(int width, int height)
 	{
 		this.width = width;
@@ -110,6 +110,21 @@ public class Rooms{
 		info.setName(name);
 	}
 	
+	public String getName()
+	{
+		return info.getName();
+	}
+	
+	public void setRoomNum(String num)
+	{
+		info.setRoomNumber(num);
+	}
+	
+	public String getRoomNum()
+	{
+		return info.getRoomNumber();
+	}
+	
 	public Rectangle getFloor()
 	{
 		return innerArea.getShape();
@@ -132,6 +147,7 @@ public class Rooms{
 	
 	public void setX(int x)
 	{
+		info.setX(x);
 		this.x = x;
 	}
 	
@@ -140,10 +156,15 @@ public class Rooms{
 		return y;
 	}
 	
+	
 	public void setY(int y)
 	{
+		info.setY(y);
 		this.y = y;
 	}
+	
+
+	
 	
     public static class NodeFloor extends StackPane {
 

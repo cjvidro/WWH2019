@@ -34,15 +34,16 @@ public class LocationReader {
             
             while(scan.hasNext())
             {
+            	// 
             	String command = scan.next();
             	{
             		if(command.equalsIgnoreCase("room"))
             		{
+            			String name = scan.next();
             			int x = scan.nextInt();
             			int y = scan.nextInt();
             			int width = scan.nextInt();
             			int height = scan.nextInt();
-            			String name = scan.next();
             			Rooms room = new Rooms(x, y, width, height, name);
             			info.add(room.write());
             			pane.getChildren().addAll(room.getFloor(), room.getWall());
