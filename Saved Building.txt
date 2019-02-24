@@ -1,0 +1,2 @@
+Floor 0 0 
+Room BoringClass D45 25 25
